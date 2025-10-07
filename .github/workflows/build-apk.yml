@@ -1,0 +1,63 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, 1-create-a-android-app ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+
+      - name: Prepare Android SDK (cmdline-tools)
+        run: |
+          sudo mkdir -p /usr/lib/android-sdk/cmdline-tools
+          curl -sSL https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -o cmd.zip
+          sudo unzip -q cmd.zip -d /usr/lib/android-sdk/cmdline-tools
+          rm cmd.zip
+          yes | sudo /usr/lib/android-sdk/cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=/usr/lib/android-sdk --licenses
+          sudo /usr/lib/android-sdk/cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=/usr/lib/android-sdk "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          echo "sdk.dir=/usr/lib/android-sdk" > local.properties
+
+      - name: Setup Gradle (no wrapper)
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 8.2
+
+      - name: Assemble Debug
+        run: gradle :app:assembleDebug --stacktrace
+
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+
+      - name: Assemble Release (Unsigned)
+        run: gradle :app:assembleRelease --stacktrace || true
+
+      - name: Upload Release APK (Unsigned)
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-unsigned-apk
+          path: app/build/outputs/apk/release/app-release-unsigned.apk
+          if-no-files-found: warn
+
+      - name: Summary
+        run: |
+          echo "Debug APK artifact name: app-debug-apk" >> $GITHUB_STEP_SUMMARY
+          echo "Unsigned release APK artifact name: app-release-unsigned-apk" >> $GITHUB_STEP_SUMMARY

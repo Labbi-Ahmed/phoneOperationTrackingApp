@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Phone Operation Tracking App</string>
+    <string name="start_tracking">Start Tracking</string>
+    <string name="stop_tracking">Stop Tracking</string>
+    <string name="start_scheduler">Start Scheduler</string>
+    <string name="stop_scheduler">Stop Scheduler</string>
+    <string name="upload_now">Upload Now</string>
+    <string name="tracking_enabled">Tracking: Enabled</string>
+    <string name="tracking_disabled">Tracking: Disabled</string>
+    <string name="scheduler_enabled">Auto Upload: Every 10 minutes</string>
+    <string name="scheduler_disabled">Auto Upload: Disabled</string>
+    <string name="vpn_permission_required">VPN permission is required to monitor network traffic</string>
+    <string name="google_account_required">Please select a Google account to upload logs</string>
+    <string name="upload_success">Logs uploaded successfully</string>
+    <string name="upload_failed">Failed to upload logs</string>
+    <string name="no_logs_to_upload">No logs to upload</string>
+</resources>

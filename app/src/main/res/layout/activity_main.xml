@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone Operation Tracking App"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Tracking Status Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_background"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Network Tracking"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tv_tracking_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tracking: Disabled"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btn_toggle_tracking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Tracking"
+            android:backgroundTint="@color/primary_color" />
+
+    </LinearLayout>
+
+    <!-- Scheduler Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_background"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Auto Upload to Google Sheets"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tv_scheduler_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Auto Upload: Disabled"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btn_toggle_scheduler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Scheduler"
+            android:backgroundTint="@color/secondary_color" />
+
+    </LinearLayout>
+
+    <!-- Manual Upload Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_background"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manual Upload"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload current logs to Google Sheets immediately"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btn_manual_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Now"
+            android:backgroundTint="@color/accent_color" />
+
+    </LinearLayout>
+
+    <!-- Status Information -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Note: This app requires VPN permission to monitor network traffic. Logs are stored locally and uploaded to your Google Drive spreadsheet."
+        android:textSize="12sp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/text_secondary" />
+
+</LinearLayout>
