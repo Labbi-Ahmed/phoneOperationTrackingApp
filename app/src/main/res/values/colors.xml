@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_color">#2196F3</color>
-    <color name="primary_dark">#1976D2</color>
-    <color name="secondary_color">#4CAF50</color>
-    <color name="secondary_dark">#388E3C</color>
-    <color name="accent_color">#FF9800</color>
+    <!-- Primary Colors -->
+    <color name="primary_color">#1E88E5</color>
+    <color name="primary_dark">#1565C0</color>
+    <color name="primary_light">#42A5F5</color>
+    
+    <!-- Secondary Colors -->
+    <color name="secondary_color">#43A047</color>
+    <color name="secondary_dark">#2E7D32</color>
+    <color name="secondary_light">#66BB6A</color>
+    
+    <!-- Accent Colors -->
+    <color name="accent_color">#FB8C00</color>
+    <color name="accent_dark">#E65100</color>
+    <color name="accent_light">#FFB74D</color>
+    
+    <!-- Base Colors -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
     <color name="text_secondary">#757575</color>
-    <color name="background_light">#F5F5F5</color>
-    <color name="ic_launcher_background">#2196F3</color>
+    <color name="text_hint">#BDBDBD</color>
+    
+    <!-- Background Colors -->
+    <color name="background_light">#FAFAFA</color>
+    <color name="background_card">#FFFFFF</color>
+    <color name="divider">#E0E0E0</color>
+    
+    <!-- Status Colors -->
+    <color name="status_success">#43A047</color>
+    <color name="status_error">#E53935</color>
+    <color name="status_warning">#FB8C00</color>
+    <color name="status_info">#1E88E5</color>
+    
+    <!-- Legacy -->
+    <color name="ic_launcher_background">#1E88E5</color>
 </resources>

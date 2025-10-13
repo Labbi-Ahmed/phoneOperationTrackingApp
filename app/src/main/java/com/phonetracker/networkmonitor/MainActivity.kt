@@ -141,12 +141,27 @@ class MainActivity : AppCompatActivity() {
         val isEnabled = preferenceManager.isTrackingEnabled()
         binding.btnToggleTracking.text = if (isEnabled) "Stop Tracking" else "Start Tracking"
         binding.tvTrackingStatus.text = "Tracking: ${if (isEnabled) "Enabled" else "Disabled"}"
+        
+        // Update status badge background
+        val statusBg = if (isEnabled) R.drawable.status_enabled_bg else R.drawable.status_disabled_bg
+        binding.tvTrackingStatus.setBackgroundResource(statusBg)
+        
+        // Update button icon
+        val icon = if (isEnabled) R.drawable.ic_stop else R.drawable.ic_play
+        binding.btnToggleTracking.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0)
     }
     
     private fun updateSchedulerStatus() {
         val isEnabled = preferenceManager.isSchedulerEnabled()
         binding.btnToggleScheduler.text = if (isEnabled) "Stop Scheduler" else "Start Scheduler"
         binding.tvSchedulerStatus.text = "Auto Upload: ${if (isEnabled) "Every 10 minutes" else "Disabled"}"
+        
+        // Update status badge background
+        val statusBg = if (isEnabled) R.drawable.status_enabled_bg else R.drawable.status_disabled_bg
+        binding.tvSchedulerStatus.setBackgroundResource(statusBg)
+        
+        // Update button icon - keep schedule icon always
+        binding.btnToggleScheduler.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_schedule, 0, 0, 0)
     }
     
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
